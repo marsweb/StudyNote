@@ -9,9 +9,17 @@
     <div class="container">
         <h2 class="page-header">Avalon 框架笔记</h2>
         <section>
+            <p>Avalon可以将前端代码的显示、数据及控制层分离开，使前端代码降低耦合度，实现更易维护、易扩展的系统。</p>
+            <p><strong>一些名词：</strong></p>
+            <p>MVVM：类似于MVC，但是在这里的Controller层由另一个ViewModel层来代替，因此叫MVVC。</p>
+            <p>视图模型（ViewModel）：类似于后端语言中的对象的概念。程序员定义好，由Avalon在适当的时机创建，在视图模型中可以包含相关业务的属性，这些属性可以和html页面中的元素内容绑定。视图模型可以定义多个，每一个都必须包含一个$id值来唯一标示这个模型，他们都会默认放在avalon.vmodels对象中。</p>
+            <p>绑定：将视图模型中创建的变量属性与html视图中的内容、动作或属性进行关联。实现在ViewModel中修改就可以同步到视图层。</p>
+            <p>双向绑定：类似绑定但是是双向影响，视图层的修改也可以同步到ViewModel中。</p>
+        </section>
+        <section>
             <p><strong>绑定表达式：</strong>{{...}}</p>
             <p><strong>使用框架：</strong></p>
-            <p>定义Model实例avalon.define() 》为该Model添加$id及其他变量 》 扫描avalon.scan() </p>
+            <p>定义ViewModel：avalon.define() 》为该ViewModel添加$id及其他属性 》 开始扫描：avalon.scan() </p>
             <p><strong>绑定属性：</strong></p>
             <p>绑定控制器：ms-controller="xxx"</p>
             <p>绑定值：ms-duplex="xxx"</p>
