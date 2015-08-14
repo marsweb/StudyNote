@@ -25,16 +25,22 @@
             <h4><strong>插值表达式：</strong></h4><p>{{...}}</p>
             <h4><strong>使用框架：</strong></h4>
             <p>定义ViewModel：avalon.define() >> 为该ViewModel添加$id及其他属性 >> 开始扫描：avalon.scan() </p>
-            <h4><strong>绑定属性：</strong></h4>
+            <h4><strong>绑定属性（指令）：</strong></h4>
             <p>作用域绑定：ms-controller="xxx"（当找不到属性值会向上查找）; ms-important="xxx"（当找不到属性值不会向上查找）</p>
-            <p>双向绑定值：ms-duplex="xxx"</p>
+            <p>双向绑定值：ms-duplex="xxx"，当输入框为checkbox时xxx要为一个数组，当输入框为select时xxx要为一个字符串或者数组，当输入框为radio时，应该使用ms-duplex-text来将radio的选择值会被放入xxx的字符串中。</p>
             <p>绑定鼠标经过事件：ms-mouseover="xxx();"</p>
             <p>绑定鼠标点击事件：ms-click="xxx();"</p>
             <p>绑定a链接地址：ms-href="xxx"</p>
             <p>循环绑定：ms-repeat="xxx"</p>
-            <p>绑定title属性：ms-title="xxx"</p>
             <p>绑定width属性：ms-css-width="x"</p>
             <p>绑定height属性：ms-css-height="x"</p>
+            <p>属性绑定：ms-attr-*="xxx"，属性绑定又分为布尔属性（如checked、selected、readonly）绑定和字符串属性（value、title、alt、href、src）绑定，在1.3.7版本中大部分单独定义的绑定被踢出，只剩下五种（ms-attr、ms-src、ms-href、ms-css、ms-include）。xxx中会使用{{}}表达式来取VM中定义的属性</p>
+            <p>是否可见属性：ms-visible="xxx"，属性值需要是一个布尔值，可以通过运算符比较得到布尔值</p>
+            <p>类名绑定：ms-class="xxx:xxx"，该绑定中的值有两个参数，第一个是类名，第二个是布尔值。如果布尔值是真则绑定该类名，如果为假则不绑定。第一个参数如需要VM中的属性，则要用{{}}，第二个参数可以为空（此时没有:）。当有多个类名需要绑定时，在ms-class后添加-*，*是数字，class的加载顺序由数字的由小到大决定。</p>
+            <p>是否生成属性：ms-if="xxx"，属性值需要是一个布尔值，可以通过运算符比较得到布尔值。它和ms-visible表现上相似但是会影响到:empty伪类的值。</p>
+            <h4><strong>绑定属性的优先级：</strong></h4>
+            <p>决定是否扫描元素的指令优先级最高（ms-skip>ms-important>ms-controller），其次排后（if>repeat>widget>each>with>duplex>on）</p>
+            
         </section>
     </div>
 </body>
