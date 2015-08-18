@@ -11,13 +11,13 @@
             <h2>React 学习笔记</h2>
             <h4>一个view层的框架 Learn once, write anywhere</h4>
         </div>
-        <p>虚拟DOM：是React的基础。React的原理就是通过在虚拟DOM中创建元素再将其渲染到真实DOM中这种方法隔离了元素生成这一步，使前端开发实现了更好的复用性和协作性。</p> 
+        <p>虚拟DOM：是React的基础。React的原理就是通过在虚拟DOM中创建元素再将其渲染到真实DOM中，这种方法隔离了元素生成这一步，使前端开发实现了更好的复用性和协作性。</p> 
         <p>创建React组件：React.createClass(xxx)。参数xxx是一个实现预定义接口的JavaScript对象，至少需要实现一个render方法，该方法必须返回一个React元素。组件的名称必须是首字母大写。</p>  
         <p>创建React元素：React.createElement(类型,属性,子元素)。类型这个位置如果是一个字符串，那么这个参数应该是一个标准的HTML标签名称；这个位置还可以是一个React组件类型。属性是可选的JSON对象，用来指定元素的样式、CSS类等。子元素中可以再次使用React创建</p>
-        <p>渲染到真实DOM：React.render(元素,容器,回调函数)。元素是我们创建的React元素；容器是真实DOM的容器元素；回调函数是可选的参数，渲染完成后执行。</p>
-        
-        <p>React一般是和JSX一起使用。JSX是JavaScript的扩展，他的写法类似XML语法，在实际使用时再通过JSXTransformer.js工具可以将他转化为JavaScript来使得浏览器能够识别。</p>
-        <p>在React中标签语句不是字符串，不需要用引号括起来。标签语句中如果要使用React中定义的变量或JavaScript表达式，需要用{}括起来。如果该变量是数组，那么该标签会自动重复。标签的属性名称中for和class需要写成htmlFor和className，因为for和class是JavaScript的保留字</p>
+        <p>渲染到真实DOM：React.render(元素,容器,回调函数)。元素是我们创建的React元素，这里必须是元素而不能是组件；容器是真实DOM的容器元素；回调函数是可选的参数，渲染完成后执行。</p>
+        <p>规划和抽象页面元素 >> 创建React组件 >> 创建React元素 >> 渲染到页面中</p>
+        <p>React一般是和JSX一起使用。JSX是JavaScript的扩展，他的写法类似HTMl，可以让我们在JavaScript中用类似HTML的方式创建React元素。在实际使用时再通过JSXTransformer.js工具可以将他转化为JavaScript来使得浏览器能够识别。这个转换库是通过监听DOMContentLoaded事件得知DOM树构造完成后处理JSX脚本。</p>
+        <p>在React中JSX不需要用引号括起来。JSX中如果要使用React中定义的变量或JavaScript表达式，需要用{}括起来。如果该变量是数组，那么该标签会自动重复。标签的属性名称中for和class需要写成htmlFor和className，因为for和class是JavaScript的保留字。</p>
         <p></p>
     </div>
 </body>
