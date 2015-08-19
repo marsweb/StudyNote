@@ -17,8 +17,15 @@
         <p>渲染到真实DOM：React.render(元素,容器,回调函数)。元素是我们创建的React元素，这里必须是元素而不能是组件；容器是真实DOM的容器元素；回调函数是可选的参数，渲染完成后执行。</p>
         <p>规划和抽象页面元素 >> 创建React组件 >> 创建React元素 >> 渲染到页面中</p>
         <p>React一般是和JSX一起使用。JSX是JavaScript的扩展，他的写法类似HTMl，可以让我们在JavaScript中用类似HTML的方式创建React元素。在实际使用时再通过JSXTransformer.js工具可以将他转化为JavaScript来使得浏览器能够识别。这个转换库是通过监听DOMContentLoaded事件得知DOM树构造完成后处理JSX脚本。</p>
-        <p>在React中JSX不需要用引号括起来。JSX中如果要使用React中定义的变量或JavaScript表达式，需要用{}括起来。如果该变量是数组，那么该标签会自动重复。标签的属性名称中for和class需要写成htmlFor和className，因为for和class是JavaScript的保留字。</p>
-        <p></p>
+        <p>在React中JSX不需要用引号括起来。JSX中如果要使用React中定义的变量或JavaScript表达式，需要用{}括起来。如果该变量是数组，那么该标签会自动重复。标签的属性名称中for和class需要写成htmlFor和className，因为for和class是JavaScript的保留字。在操作表单时，value属性应该写成defaultvalue，checked属性应该写成defaultchecked，在JSX中定义的属性，可以在createClass的render中用this.props.xxx来获取xxx的值。</p>
+        
+        <p>在JSX中可以使用内联样式：方法是定义一个对象，对象中的属性名称就是采用驼峰式的样式名称，如background-color应写成backgroundColor，他的值类型是字符串。最后在JSX的style属性中使用该对象即可。</p>
+        <p>组件的状态：每个组件都有一个state变量对象，可以在其中设置一些状态值。要使用state变量，必须要除了render方法外实现getInitialState()方法，在其中返回一个对象，这个对象就会被当做state对象。要设置state对象的值要使用setState(currentState)方法，它可以自动重新刷新组件，参数currentState是一个JSON对象，不必包含变量的所有字段，setState会将当前值和这个currentState合并。一般在状态中存储常常需要改变的量。</p>
+				<p>组件的生命周期：componentWillMount()——初次渲染时 >> componentDidMount()——初次渲染后 >> componentWillReceiveProps(nextProps)——重新设置新属性时 >> shouldComponentUpdate(nextProps,nextState)——重新渲染时 >> componentWillUpdate(nextProps,nextState)——重新渲染时 >> componentDidUpdate(prevProps, prevState)——重新渲染后 >> componentWillUnmount()——即将移除时</p>
+				<p>React访问DOM：需要在要被访问的DOM上添加属性ref="x"，在要访问时用React.findDOMNode(this.refs.x)来获得。</p>
+				<p>获得渲染时的组件子元素：this.props.children</p>
+				<p>给元素定义属性包：定义一个属性包对象，类似前面的内联样式，然后在元素定义时传入该包<any {...xxx}=""></any></p>
+				<p>思路：分解大的模块，抽出独立的最小组件，对其中可能会改变的变量使用state；完成最小独立组件的构造后，开始完成与独立组件相关联可以构成大组件的组件。最后渲染，整个过程以构造组件为主，元素主要以JSX构件。</p>
     </div>
 </body>
 </html>
