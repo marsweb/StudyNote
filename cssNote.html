@@ -23,10 +23,14 @@
 		<article>
 			<h3 class="row text-center">px、em、rem之间的区别</h3>
 			<div class="row col-xs-12">
+				<h4>各单位区别：</h4>
 				<p>px：固定大小单位；rem：相对（根级）大小单位；em：相对（父级）大小单位。</p>
+				<h4>单位换算：</h4>
 				<p>任意浏览器的默认字体大小都是16px的大小。</p>
 				<p>为了方便设定，可以将根级字体大小设置为62.5%（font-size:62.5%），这样用em单位的话，1em=10px，1.2em=12px，以此类推。</p>
+				<h4>浏览器兼容：</h4>
 				<p>目前IE8以及之前的浏览器不支持rem，可以写多个font-size来定义字体。如：p{font-size:14px; font-size:1.4rem; }，不支持rem的浏览器会忽略该样式，都支持的浏览器会用rem覆盖掉前面的样式</p>
+				<h4>工具网站：</h4>
 				<p>单位转换工具：http://pxtoem.com</p>
 			</div>
 		</article>
